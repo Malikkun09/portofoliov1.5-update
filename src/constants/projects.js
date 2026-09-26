@@ -1,8 +1,50 @@
 const projects = [
   {
+    id: 'unreal-engine-pkl',
+    title: 'Unreal Engine',
+    isNew: true,
+    img: '/project-unreal-engine-pkl/project-unreal-engine-pkl.webp',
+    link: '/projects/unreal-engine-pkl',
+    date: '2026',
+    company: 'PKL',
+    primary: '#12161c',
+    accentColor: '#e8eef2',
+    secondary: '#e3ebf0',
+    fillColor: '#b7d98a',
+    menuColor: '#d4b15a',
+    menuFontColor: '#12161c',
+    fluidColor: '#7eb6d4',
+    images: [
+      {
+        src: '/project-unreal-engine-pkl/video.mp4',
+        tag: 'video',
+        isRight: false,
+      },
+      {
+        src: '/project-unreal-engine-pkl/1.webp',
+        tag: 'big',
+        isRight: false,
+      },
+      {
+        src: '/project-unreal-engine-pkl/2.webp',
+        tag: 'medium',
+        isRight: false,
+      },
+      {
+        src: '/project-unreal-engine-pkl/3.webp',
+        tag: 'medium',
+        isRight: false,
+      },
+    ],
+    desc: [
+      'Unreal Engine scene work from my PKL: a playable character in an open landscape, a riverbank bridge, and mechanisms the player has to find.',
+      'The east bank sits under a wooden crossing. A quest line points at the old lever before the river, with scale checked in the viewport.',
+      'The gallery opens with a short highlight of that capture, then stills of the character, the bridge, and the mechanism.',
+    ],
+  },
+  {
     id: 'chatbot',
     title: 'Multimodal Chatbot',
-    isNew: true,
     img: '/project-chatbot/project-chatbot.webp',
     link: '/projects/chatbot',
     date: '2026',

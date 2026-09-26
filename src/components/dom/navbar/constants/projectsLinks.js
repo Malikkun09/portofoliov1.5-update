@@ -1,8 +1,12 @@
 const projectsLinks = [
   {
+    title: 'Unreal Engine',
+    href: '/projects/unreal-engine-pkl',
+    isNew: true,
+  },
+  {
     title: 'Multimodal Chatbot',
     href: '/projects/chatbot',
-    isNew: true,
   },
   {
     title: 'YOLO-World',
