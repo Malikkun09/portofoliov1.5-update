@@ -55,6 +55,7 @@
     flex: 1 1 auto;
     height: 1px;
     width: 100%;
+    overflow: hidden;
     box-shadow: 0 0 0 1vw var(--white);
 
     border-radius: var(--layout-columns-gap);
@@ -97,15 +98,21 @@
       box-shadow: 0 0 0 calc(var(--layout-columns-gap) * 0.04) var(--white);
     }
   }
-  .infiniteContainer {
+  .scrollHint {
     position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background-color: var(--white);
-    overflow: hidden;
-    height: calc(var(--layout-columns-gap) * 2);
     left: var(--layout-margin);
+    bottom: 0;
     width: calc(100% - 2 * var(--layout-margin));
+    height: calc(var(--layout-columns-gap) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    font-size: 0.9vw;
+    letter-spacing: 0.04em;
+
+    @include mobile {
+      font-size: 3vw;
+    }
   }
 }

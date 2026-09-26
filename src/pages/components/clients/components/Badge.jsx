@@ -26,7 +26,8 @@ export default function Badge({ name }) {
       }}
       style={{ position: 'relative', display: 'block', backgroundColor: 'transparent', borderRadius: '1.3888888889vw', height: '100%', width: '100%' }}
     >
-      <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={25} />
+      <color attach="background" args={['#f0f4f1']} />
+      <PerspectiveCamera makeDefault position={[1, -0.4, 9]} fov={42} />
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band name={name} intersected={intersection?.isIntersecting} />
@@ -123,7 +124,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, name, intersected }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[0, 5.4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />

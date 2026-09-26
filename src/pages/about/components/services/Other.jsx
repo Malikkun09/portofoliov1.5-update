@@ -2,7 +2,6 @@ import { Fragment, memo, useCallback, useRef } from 'react';
 
 import AppearByWords from '@src/components/animationComponents/appearByWords/Index';
 import AppearTitle from '@src/components/animationComponents/appearTitle/Index';
-import Arrow from '@src/components/imageComponents/Arrow';
 import MagicBall from '@src/pages/about/components/magicball/MagicBall';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import clsx from 'clsx';
@@ -255,7 +254,6 @@ const Other = memo(({ setPortals }) => {
                       key={option.title}
                       className={styles.option}
                     >
-                      <Arrow className={styles.arrow} />
                       <div className="p-l">
                         <AppearTitle index={index} optionIndex={optionIndex} ref={optionTitlesRef}>
                           <div>{option.title}</div>

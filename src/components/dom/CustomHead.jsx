@@ -1,5 +1,6 @@
 import NextHead from 'next/head';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import profile from '@src/constants/profile';
 
@@ -18,6 +19,10 @@ const getSchema = () => ({
 });
 
 function CustomHead({ title = '', description, keywords }) {
+  const router = useRouter();
+  const path = (router.asPath || '/').split('?')[0].split('#')[0];
+  const canonical = `${SITE_URL}${path === '/' ? '' : path}`;
+
   return (
     <>
       <NextHead>
@@ -25,7 +30,7 @@ function CustomHead({ title = '', description, keywords }) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta httpEquiv="x-dns-prefetch-control" content="off" />
         <meta name="robots" content={process.env.NODE_ENV !== 'development' ? 'index,follow' : 'noindex,nofollow'} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content={keywords && keywords.length ? keywords.join(',') : keywords} />
         <meta name="author" content="Muhammad Malik Fajar El Syarif" />
         <meta name="referrer" content="no-referrer" />
@@ -33,7 +38,7 @@ function CustomHead({ title = '', description, keywords }) {
         <meta name="geo.region" content="ID" />
 
         {/* Canonical and Title */}
-        <link rel="canonical" href={SITE_URL} />
+        <link rel="canonical" href={canonical} />
         <title>{title}</title>
 
         {/* OpenGraph Meta Tags */}
@@ -41,7 +46,7 @@ function CustomHead({ title = '', description, keywords }) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:url" content={canonical} />
 
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />

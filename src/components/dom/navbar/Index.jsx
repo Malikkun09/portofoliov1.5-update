@@ -48,6 +48,18 @@ function Navbar() {
             <h4 className={clsx('bold', 'h4')}>{profile.brand}</h4>
           </Link>
 
+          <nav className={styles.pageNav} aria-label="Pages">
+            <Link scroll={false} href="/" className={router.pathname === '/' ? styles.active : undefined}>
+              Home
+            </Link>
+            <Link scroll={false} href="/about" className={router.pathname === '/about' ? styles.active : undefined}>
+              About
+            </Link>
+            <Link scroll={false} href="/projects" className={router.pathname.startsWith('/projects') ? styles.active : undefined}>
+              Projects
+            </Link>
+          </nav>
+
           <div className={styles.rightContainer}>
             {!isMobile && <ButtonLink href={profile.contactHref} label="GET IN TOUCH" target />}
             <MenuButton />

@@ -1,27 +1,25 @@
 import SplitType from 'split-type';
-import { gsap } from 'gsap';
 import { useIsomorphicLayoutEffect } from '@src/hooks/useIsomorphicLayoutEffect';
 
 const useSplitAnimation = (ref, styles) => {
   useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const splitted = new SplitType(ref.current, {
-        types: 'chars',
-        tagName: 'span',
-        charClass: styles.char,
-      });
+    const element = ref.current;
+    if (!element) return undefined;
 
-      splitted.chars.forEach((char, i) => {
-        char.style.setProperty('--i', i);
-      });
+    const splitted = new SplitType(element, {
+      types: 'chars',
+      tagName: 'span',
+      charClass: styles.char,
+    });
 
-      return () => {
-        splitted.kill();
-      };
-    }, ref);
+    splitted.chars?.forEach((char, i) => {
+      char.style.setProperty('--i', i);
+    });
 
-    return () => ctx.kill();
-  }, []);
+    return () => {
+      splitted.revert();
+    };
+  }, [styles]);
 };
 
 export default useSplitAnimation;
